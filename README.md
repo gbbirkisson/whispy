@@ -26,7 +26,7 @@ pipx install -f git+https://github.com/gbbirkisson/whispy.git
 
 ## Usage
 
-```
+```bash
 $ whispy --help
 Usage: whispy [OPTIONS]
 
@@ -39,8 +39,13 @@ Usage: whispy [OPTIONS]
           ESC: Press briefly while recording to cancel
 
 Options:
-  -m, --model TEXT           Whisper model to use.  [default: small.en]
-  -t, --translate TEXT       Language to translate to.  [default: norwegian]
-  -k, --openai-api-key TEXT  OpenAI API key.  [env: OPENAI_API_KEY]
-  --help                     Show this message and exit.
+  -m, --model [tiny|base|small|medium|large|turbo|tiny.en|base.en|small.en|medium.en]
+                                  Whisper model to use.  [default: small]
+  -l, --language [en|zh|de|es|ru|ko|fr|ja|pt|tr|pl|ca|nl|ar|sv|it|id|hi|fi|vi|he|uk|el|ms|cs|ro|da|hu|ta|no|th|ur|hr|bg|lt|la|mi|ml|cy|sk|te|fa|lv|bn|sr|az|sl|kn|et|mk|br|eu|is|hy|ne|mn|bs|kk|sq|sw|gl|mr|pa|si|km|sn|yo|so|af|oc|ka|be|tg|sd|gu|am|yi|lo|uz|fo|ht|ps|tk|nn|mt|sa|lb|my|bo|tl|mg|as|tt|haw|ln|ha|ba|jw|su|yue]
+                                  Language to listen to.  [default: en]
+  -t, --translate [en|zh|de|es|ru|ko|fr|ja|pt|tr|pl|ca|nl|ar|sv|it|id|hi|fi|vi|he|uk|el|ms|cs|ro|da|hu|ta|no|th|ur|hr|bg|lt|la|mi|ml|cy|sk|te|fa|lv|bn|sr|az|sl|kn|et|mk|br|eu|is|hy|ne|mn|bs|kk|sq|sw|gl|mr|pa|si|km|sn|yo|so|af|oc|ka|be|tg|sd|gu|am|yi|lo|uz|fo|ht|ps|tk|nn|mt|sa|lb|my|bo|tl|mg|as|tt|haw|ln|ha|ba|jw|su|yue]
+                                  Language to translate to.  [default: no]
+  -k, --openai-api-key TEXT       OpenAI API key. Only used for translations.
+                                  [env: OPENAI_API_KEY]
+  --help                          Show this message and exit.
 ```

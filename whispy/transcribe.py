@@ -11,16 +11,18 @@ from whispy.typewriter import Writer
 
 
 class Transcriber:
-    def __init__(self, model: str) -> None:
+    def __init__(self, model: str, language: str) -> None:
         logging.info("Loading model: %s", model)
         import whisper
 
-        self._model = whisper.load_model("small.en")
+        self._model = whisper.load_model(model)
+        self._language = language
 
     def __call__(self, data: np.ndarray) -> str:
         result = self._model.transcribe(
             data.flatten().astype(np.float32),
             fp16=False,
+            language=self._language,
         )
         return f"{result['text']}".strip()
 
@@ -41,7 +43,7 @@ class WhispyListener(Listener):
         transcriber: Transcriber,
         *transformers: tuple[Key, Transformer, str],
     ) -> None:
-        super().__init__(on_press=self._on_press, on_release=self._on_release) # type: ignore
+        super().__init__(on_press=self._on_press, on_release=self._on_release)  # type: ignore
         self._rkey = rkey
         self._notify = notify
         self._writer = writer
