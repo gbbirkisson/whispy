@@ -1,0 +1,28 @@
+[project]
+name = "whispy"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+  "click>=8.1.8",
+  "numpy>=2.0.2",
+  "openai>=1.65.5",
+  "openai-whisper>=20240930",
+  "pyautogui>=0.9.54",
+  "pynput==1.7.6",
+  "sounddevice>=0.5.1",
+]
+
+[project.scripts]
+whispy = "whispy.__main__:main"
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.396",
+    "ruff>=0.9.10",
+]
