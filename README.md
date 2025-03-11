@@ -13,10 +13,34 @@
 
 <!-- vim-markdown-toc GFM -->
 
-* [Usage 📖](#usage-)
+* [Installation](#installation)
+* [Usage](#usage)
 
 <!-- vim-markdown-toc -->
 
-## Usage 📖
+## Installation
 
-TODO
+```bash
+pipx install -f git+https://github.com/gbbirkisson/whispy.git
+```
+
+## Usage
+
+```
+$ whispy --help
+Usage: whispy [OPTIONS]
+
+  Simple program that transcribes audio when a hotkey is pressed. Once the
+  program has started, these are the keys you can use:
+
+          RIGHT_CTRL: Press and hold to start recording audio
+          RIGHT_SHIFT: Press briefly while recording to translate transcript
+          LEFT_SHIFT: Press briefly while recording to output email
+          ESC: Press briefly while recording to cancel
+
+Options:
+  -m, --model TEXT           Whisper model to use.  [default: small.en]
+  -t, --translate TEXT       Language to translate to.  [default: norwegian]
+  -k, --openai-api-key TEXT  OpenAI API key.  [env: OPENAI_API_KEY]
+  --help                     Show this message and exit.
+```
