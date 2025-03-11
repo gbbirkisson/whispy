@@ -41,7 +41,7 @@ class WhispyListener(Listener):
         transcriber: Transcriber,
         *transformers: tuple[Key, Transformer, str],
     ) -> None:
-        super().__init__(on_press=self._on_press, on_release=self._on_release)
+        super().__init__(on_press=self._on_press, on_release=self._on_release) # type: ignore
         self._rkey = rkey
         self._notify = notify
         self._writer = writer
@@ -54,7 +54,7 @@ class WhispyListener(Listener):
         }
         self._active_trans = []
 
-    def _on_press(self, key) -> None:
+    def _on_press(self, key: Key) -> None:
         if self._rec.recording:
             if key == Key.esc:
                 self._notify("Canceled by user", urgency="low")
@@ -70,7 +70,7 @@ class WhispyListener(Listener):
 
         self._rec.start()
 
-    def _on_release(self, key) -> None:
+    def _on_release(self, key: Key) -> None:
         if key != self._rkey:
             return
 
@@ -81,8 +81,8 @@ class WhispyListener(Listener):
         self._active_trans = []
         transformers.sort(key=lambda t: t.priority)
 
-        len, data = self._rec.stop()
-        if not len or data is None:
+        data_len, data = self._rec.stop()
+        if not data_len or data is None:
             logging.info("Recording has no data, skipping")
             return
 
@@ -90,7 +90,7 @@ class WhispyListener(Listener):
             logging.info("Recording cancelled, skipping")
             return
 
-        if len < 0.5:
+        if data_len < 0.5:
             logging.info("Recording to short, skipping")
             return
 

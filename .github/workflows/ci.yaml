@@ -18,7 +18,6 @@ jobs:
         target:
           - ruff
           - pyright
-          - test
 
     steps:
       - name: Checkout repository

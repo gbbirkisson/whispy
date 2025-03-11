@@ -34,8 +34,7 @@ logging.basicConfig(format="%(asctime)s %(levelname)s: %(message)s", level=loggi
     help="OpenAI API key.  [env: OPENAI_API_KEY]",
 )
 def _whispy(model: str, translate: str, openai_api_key: str) -> None:
-    """
-    Simple program that transcribes audio when a hotkey is pressed. Once the program has
+    """Simple program that transcribes audio when a hotkey is pressed. Once the program has
     started, these are the keys you can use:
 
         \b
@@ -44,7 +43,6 @@ def _whispy(model: str, translate: str, openai_api_key: str) -> None:
         LEFT_SHIFT: Press briefly while recording to output email
         ESC: Press briefly while recording to cancel
     """
-
     openai_client = OpenAI(api_key=openai_api_key)
 
     with WhispyListener(
@@ -70,7 +68,7 @@ def _whispy(model: str, translate: str, openai_api_key: str) -> None:
             logging.info("Exiting")
 
 
-def main():
+def main() -> None:
     _whispy()
 
 

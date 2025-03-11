@@ -10,5 +10,5 @@ class Writer(Protocol):
 def cmd_xdotool(msg: str, delay: int = 10) -> None:
     for nr, line in enumerate(msg.splitlines()):
         if nr > 1:
-            subprocess.run(["xdotool", "key", "Return"])
-        subprocess.run(["xdotool", "type", "--delay", f"{delay}", line])
+            subprocess.run(["xdotool", "key", "Return"], check=False)
+        subprocess.run(["xdotool", "type", "--delay", f"{delay}", line], check=False)
