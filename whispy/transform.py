@@ -8,7 +8,7 @@ class Transformer(Protocol):
 
 class AiTransformer:
     def __init__(
-        self, client: OpenAI, name: str, priority: int, system_prompt: str
+        self, client: OpenAI, name: str, priority: int, system_prompt: str,
     ) -> None:
         self._client = client
         self._prompt = system_prompt

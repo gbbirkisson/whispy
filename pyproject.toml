@@ -22,7 +22,21 @@ requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [dependency-groups]
-dev = [
-    "pyright>=1.1.396",
-    "ruff>=0.9.10",
+dev = ["pyright>=1.1.396", "ruff>=0.9.10"]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+  "E501",
+  "D",
+  "S603",
+  "S607",
+  "INP001",
+  "PGH003",
+  "PLR2004",
+  "S101",
 ]

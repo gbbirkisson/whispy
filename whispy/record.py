@@ -1,10 +1,13 @@
+from __future__ import annotations
+
 import logging
-from typing import Union
+from typing import TYPE_CHECKING
 
 import numpy as np
 import sounddevice as sd
 
-from whispy.notify import Notify
+if TYPE_CHECKING:
+    from whispy.notify import Notify
 
 logging.basicConfig(format="%(asctime)s %(levelname)s: %(message)s", level=logging.INFO)
 
@@ -22,12 +25,12 @@ class Recorder:
         self._rec = True
         self._data = []
         self._stream = sd.InputStream(
-            callback=self._callback, channels=1, samplerate=SAMPLE_RATE
+            callback=self._callback, channels=1, samplerate=SAMPLE_RATE,
         )
         self._stream.start()
         self._notify("Transcribing started", urgency="critical")
 
-    def stop(self) -> Union[tuple[None, None], tuple[float, np.ndarray]]:
+    def stop(self) -> tuple[None, None] | tuple[float, np.ndarray]:
         if not self._rec:
             return (None, None)
 
@@ -50,8 +53,7 @@ class Recorder:
     def recording(self) -> bool:
         return self._rec
 
-    def _callback(self, indata, frames, time, status) -> None:
-        if self._rec:
+    def _callback(self, indata, frames, time, status) -> None:  # noqa: ANN001, ARG002
             # Check if indata has the expected shape (e.g., (32,))
-            if indata.shape[1] == 1:  # Check if indata is mono
+        if self._rec and indata.shape[1] == 1:  # Check if indata is mono
                 self._data.append(indata.copy())
