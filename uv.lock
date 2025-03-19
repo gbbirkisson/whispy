@@ -1151,7 +1151,7 @@ sdist = { url = "https://files.pythonhosted.org/packages/7d/ff/4c6f31a4f08979f12
 
 [[package]]
 name = "pynput"
-version = "1.7.6"
+version = "1.8.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "evdev", marker = "'linux' in sys_platform" },
@@ -1160,9 +1160,9 @@ dependencies = [
     { name = "python-xlib", marker = "'linux' in sys_platform" },
     { name = "six" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d7/74/a231bca942b1cd9c4bb707788be325a61d26c7998bd25e88dc510d4b55c7/pynput-1.7.6.tar.gz", hash = "sha256:3a5726546da54116b687785d38b1db56997ce1d28e53e8d22fc656d8b92e533c", size = 79501 }
+sdist = { url = "https://files.pythonhosted.org/packages/f0/c3/dccf44c68225046df5324db0cc7d563a560635355b3e5f1d249468268a6f/pynput-1.8.1.tar.gz", hash = "sha256:70d7c8373ee98911004a7c938742242840a5628c004573d84ba849d4601df81e", size = 82289 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/02/27/4de87850ff87c8dcecaaf8d27f28cec89ef17eeb6938f250449cb2635e06/pynput-1.7.6-py2.py3-none-any.whl", hash = "sha256:19861b2a0c430d646489852f89500e0c9332e295f2c020e7c2775e7046aa2e2f", size = 89222 },
+    { url = "https://files.pythonhosted.org/packages/59/4f/ac3fa906ae8a375a536b12794128c5efacade9eaa917a35dfd27ce0c7400/pynput-1.8.1-py2.py3-none-any.whl", hash = "sha256:42dfcf27404459ca16ca889c8fb8ffe42a9fe54f722fd1a3e130728e59e768d2", size = 91693 },
 ]
 
 [[package]]
@@ -1662,7 +1662,7 @@ requires-dist = [
     { name = "openai", specifier = ">=1.65.5" },
     { name = "openai-whisper", specifier = ">=20240930" },
     { name = "pyautogui", specifier = ">=0.9.54" },
-    { name = "pynput", specifier = "==1.7.6" },
+    { name = "pynput", specifier = "==1.8.1" },
     { name = "sounddevice", specifier = ">=0.5.1" },
 ]
 
