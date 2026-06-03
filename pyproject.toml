@@ -21,6 +21,10 @@ whispy = "whispy.__main__:main"
 requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
+[tool.uv]
+# openai-whisper's setup.py imports pkg_resources, which was removed in setuptools>=81
+build-constraint-dependencies = ["setuptools<81"]
+
 [dependency-groups]
 dev = ["pyright>=1.1.396", "ruff>=0.9.10"]
 
